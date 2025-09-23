@@ -2,11 +2,16 @@
 
 Work In Progress
 
-# Developer Instructions
+# Usage
 
-After creating virtual environment, to run it:
+To use the application, please clone this repository, and install the requirements:
 
 ```
-cd path/to/pdfchatbot
-source venv/bin/activate
+pip install -r requirements.txt
+```
+
+Next, run the app from app.py using Streamlit:
+
+```
+streamlit run app.py
 ```
