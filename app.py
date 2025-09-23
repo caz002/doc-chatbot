@@ -35,7 +35,7 @@ def main():
 
         # create embeddings
         embeddings = OpenAIEmbeddings()
-        knowledge_base = FAISS.from_texts(chunks, embeddings)
+        knowledge_base = FAISS.from_texts(chunks, embeddings) # pylint: disable=unused-variable
         st.write(chunks)
 
 if __name__ == '__main__':
