@@ -1,6 +1,12 @@
 # doc-chatbot
 
-To run virtual environment:
+Work In Progress
 
-`cd path/to/pdfchatbot
-source venv/bin/activate`
+# Developer Instructions
+
+After creating virtual environment, to run it:
+
+```
+cd path/to/pdfchatbot
+source venv/bin/activate
+```
