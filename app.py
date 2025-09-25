@@ -5,6 +5,8 @@ from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
+from langchain.chains.question_answering import load_qa_chain
+from langchain.llms import OpenAI
 
 def main():
     """
@@ -36,7 +38,17 @@ def main():
         # create embeddings
         embeddings = OpenAIEmbeddings()
         knowledge_base = FAISS.from_texts(chunks, embeddings)
-        st.write(chunks)
+
+        # show user input
+        user_question = st.text_input("Ask a question about your PDF:")
+        if user_question:
+            docs = knowledge_base.similarity_search(user_question)
+
+            llm = OpenAI()
+            chain = load_qa_chain(llm, chain_type="stuff")
+            response = chain.run(input_documents=docs, question=query)
+            
+            st.write(response)
 
 if __name__ == '__main__':
     main()
